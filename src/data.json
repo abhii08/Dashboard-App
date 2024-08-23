@@ -1,0 +1,53 @@
+{
+    "categories": [
+      {
+        "id": "category-1",
+        "name": "CSPM Executive Dashboard",
+        "widgets": [
+          {
+            "id": "widget-1",
+            "name": "Cloud Accounts",
+            "text": "This is some random text for Cloud Accounts widget."
+          },
+          {
+            "id": "widget-2",
+            "name": "Cloud Account Risk Assessment",
+            "text": "Random text for Cloud Account Risk Assessment widget."
+          }
+        ]
+      },
+      {
+        "id": "category-2",
+        "name": "CWPP Dashboard",
+        "widgets": [
+            {
+                "id": "widget-1",
+                "name": "Top 5 Namespace Specific Alerts",
+                "text": "No graph data available!"
+            },
+            {
+                "id": "widget-2",
+                "name": "Workload Alerts",
+                "text": "No graph data available!"
+            }
+        ]
+      },
+      {
+        "id": "category-3",
+        "name": "Registry Scan",
+        "widgets": [
+            {
+                "id": "widget-1",
+                "name": "Image Risk Assessment",
+                "text": "1470 Total vulnerabilities"
+            },
+            {
+                "id": "widget-2",
+                "name": "Image Security issues",
+                "text": "2 total images"
+            }
+        ]
+      }
+    ]
+  }
+  
