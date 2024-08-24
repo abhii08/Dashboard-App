@@ -1,5 +1,3 @@
-// src/components/Category.jsx
-
 import React from 'react';
 import Widget from './Widget';
 import AddWidget from './AddWidget';

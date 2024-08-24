@@ -1,5 +1,3 @@
-// src/components/Widget.jsx
-
 import React from 'react';
 import { useSetRecoilState } from 'recoil';
 import { categoriesState } from '../state/atoms';
