@@ -15,7 +15,7 @@ const Search = () => {
           placeholder="Search anything..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-[500px] h-8 pl-10 pr-20 py-2 border border-blue-300 bg-blue-50  square-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-[500px] h-8 pl-10 pr-20 py-2 border border-blue-300 rounded-md bg-sky-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
     </div>
