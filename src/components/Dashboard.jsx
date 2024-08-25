@@ -9,7 +9,7 @@ const Dashboard = () => {
   const searchTerm = useRecoilValue(searchState).toLowerCase();
 
   return (
-      <div className="p-6 bg-sky-50 min-h-screen">
+      <div className="p-6 bg-slate-100 min-h-screen">
         <DashboardBar />
         <div className="max-w-7xl mx-auto">
           {categories.map((category) => (
