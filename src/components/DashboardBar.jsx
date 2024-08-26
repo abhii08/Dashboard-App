@@ -1,5 +1,10 @@
+import { useState } from 'react'
 
 const DashboardBar = () => {
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const toggleDrawer = () => {
+        setIsDrawerOpen(!isDrawerOpen)
+      }
     const handleRefresh = () => {
         window.location.reload();
       };
@@ -9,7 +14,7 @@ const DashboardBar = () => {
             CNAPP Dashboard
         </div>
         <div className="flex justify-between px-10 py-1 h-12 gap-x-2">
-            <button className="flex items-center space-x-1 px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">
+            <button onClick={toggleDrawer} className="flex items-center space-x-1 px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">
                 <span>Add Widget +</span>
             </button>
             <button onClick={handleRefresh} className="p-2 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">
@@ -35,9 +40,63 @@ const DashboardBar = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
             </button>
-        </div>    
-    </div>
-    );
-}
+        </div>
+         
+      {isDrawerOpen && (
+        <div
+          onClick={toggleDrawer}
+          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+        ></div>
+      )}
 
+      <div
+        className={`fixed top-0 right-0 w-1/2 h-full bg-white shadow-lg z-50 transform transition-transform duration-300 ${
+          isDrawerOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div>
+            <div className="flex text-center text-sm text-white bg-blue-900 h-12"><p className="p-2">Add Widget</p></div>
+            <p className="mt-4 ml-2">Personalise your dashboard by adding the following widget</p>
+            <div className="border-b border-gray-200 mb-4">
+                <ul className="flex -mb-px text-sm font-medium text-center">
+                <li className="mr-2">
+                    <a href="#" className="inline-block p-4 border-b-2 rounded-t-lg text-blue-600 border-blue-600">CSPM</a>
+                </li>
+                <li className="mr-2">
+                    <a href="#" className="inline-block p-4 border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300">CWPP</a>
+                </li>
+                <li className="mr-2">
+                    <a href="#" className="inline-block p-4 border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300">Image</a>
+                </li>
+                <li className="mr-2">
+                    <a href="#" className="inline-block p-4 border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300">Ticket</a>
+                </li>
+                </ul>
+            </div>
+            <div className="space-y-4 ml-2">
+                <div className="flex items-center">
+                    <input id="widget1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" />
+                    <label for="widget1" className="ml-2 text-sm font-medium text-gray-900">Cloud Accounts</label>
+                </div>
+                <div className="flex items-center">
+                    <input id="widget2" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" />
+                    <label for="widget2" className="ml-2 text-sm font-medium text-gray-900">Cloud Account Risk Assessment</label>
+                </div>
+            </div> 
+            <div className="relative h-48">
+            <div className="absolute bottom-0 right-0 mb-4 mr-4 px-4 py-2 text-white rounded">
+                <button onClick={toggleDrawer} className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50">
+                Cancel
+                </button>
+                <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700">
+                Confirm
+                </button>
+            </div>
+        </div>
+        </div>
+        </div>
+    </div>
+  )
+}    
+  
 export default DashboardBar;
