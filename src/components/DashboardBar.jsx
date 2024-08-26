@@ -111,7 +111,7 @@ const DashboardBar = () => {
                     {renderContent()}
                 </div>
             </div> 
-            <div className="relative h-48">
+            <div className="relative h-96">
             <div className="absolute bottom-0 right-0 mb-4 mr-4 px-4 py-2 text-white rounded">
                 <button onClick={toggleDrawer} className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50">
                 Cancel
