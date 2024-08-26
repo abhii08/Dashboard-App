@@ -28,9 +28,9 @@ const Widget = ({ widget, categoryId }) => {
   const getImageForWidget = (widgetName) => {
     switch (widgetName) {
       case 'Cloud Accounts':
-        return img1;
-      case 'Cloud Account Risk Assessment':
         return img2;
+      case 'Cloud Account Risk Assessment':
+        return img1;
         case 'Top 5 Namespace Specific Alerts':
         return img3;
         case 'Workload Alerts':
