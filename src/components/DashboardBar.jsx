@@ -2,11 +2,44 @@ import { useState } from 'react'
 
 const DashboardBar = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState(null);
     const toggleDrawer = () => {
         setIsDrawerOpen(!isDrawerOpen)
       }
     const handleRefresh = () => {
         window.location.reload();
+      };
+      const renderContent = () => {
+        switch (activeSection) {
+          case 'CSPM':
+            return (<div className="space-y-4 ml-2">
+            <div className="flex items-center">
+                <input id="widget1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" />
+                <label htmlFor="widget1" className="ml-2 text-sm font-medium text-gray-900">Cloud Accounts</label>
+            </div>
+            <div className="flex items-center">
+                <input id="widget2" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" />
+                <label htmlFor="widget2" className="ml-2 text-sm font-medium text-gray-900">Cloud Account Risk Assessment</label>
+            </div>
+        </div>);
+          case 'CWPP':
+            return (<div className="space-y-4 ml-2">
+            <div className="flex items-center">
+                <input id="widget1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" />
+                <label htmlFor="widget1" className="ml-2 text-sm font-medium text-gray-900">Top 5 Namespace Specific Alerts</label>
+            </div>
+            <div className="flex items-center">
+                <input id="widget2" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" />
+                <label htmlFor="widget2" className="ml-2 text-sm font-medium text-gray-900">Workload Alerts</label>
+            </div>
+        </div>);
+          case 'Image':
+            return <div>Image</div>;
+          case 'Ticket':
+            return <div>Ticket</div>;
+          default:
+            return null;
+        }
       };
     return(
     <div className="flex justify-between px-10 py-1 h-12">
@@ -58,29 +91,24 @@ const DashboardBar = () => {
             <div className="flex text-center text-sm text-white bg-blue-900 h-12"><p className="p-2">Add Widget</p></div>
             <p className="mt-4 ml-2">Personalise your dashboard by adding the following widget</p>
             <div className="border-b border-gray-200 mb-4">
-                <ul className="flex -mb-px text-sm font-medium text-center">
-                <li className="mr-2">
-                    <a href="#" className="inline-block p-4 border-b-2 rounded-t-lg text-blue-600 border-blue-600">CSPM</a>
-                </li>
-                <li className="mr-2">
-                    <a href="#" className="inline-block p-4 border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300">CWPP</a>
-                </li>
-                <li className="mr-2">
-                    <a href="#" className="inline-block p-4 border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300">Image</a>
-                </li>
-                <li className="mr-2">
-                    <a href="#" className="inline-block p-4 border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300">Ticket</a>
-                </li>
-                </ul>
-            </div>
-            <div className="space-y-4 ml-2">
-                <div className="flex items-center">
-                    <input id="widget1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" />
-                    <label for="widget1" className="ml-2 text-sm font-medium text-gray-900">Cloud Accounts</label>
+                <div className="flex -mb-px text-sm font-medium text-center">
+                    <div className="mr-2">
+                        <button onClick={() => setActiveSection('CSPM')} style={{ color: activeSection === 'CSPM' ? 'blue' : 'black' }} className="inline-block p-4 border-b-2 border-transparent hover:text-blue-600 hover:border-blue-300">CSPM</button>
+                    </div>
+                    <div className="mr-2">
+                        <button onClick={() => setActiveSection('CWPP')} style={{ color: activeSection === 'CWPP' ? 'blue' : 'black' }} className="inline-block p-4 border-b-2 border-transparent hover:text-blue-600 hover:border-blue-300">CWPP</button>
+                    </div>
+                    <div className="mr-2">
+                        <button onClick={() => setActiveSection('Image')} style={{ color: activeSection === 'Image' ? 'blue' : 'black' }} className="inline-block p-4 border-b-2 border-transparent hover:text-blue-600 hover:border-blue-300">Image</button>
+                    </div>
+                    <div className="mr-2">
+                        <button onClick={() => setActiveSection('Ticket')} style={{ color: activeSection === 'Ticket' ? 'blue' : 'black' }} className="inline-block p-4 border-b-2 border-transparent hover:text-blue-600 hover:border-blue-300">Ticket</button>
+                    </div>
                 </div>
-                <div className="flex items-center">
-                    <input id="widget2" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" />
-                    <label for="widget2" className="ml-2 text-sm font-medium text-gray-900">Cloud Account Risk Assessment</label>
+            </div>
+            <div>
+                <div className="content">
+                    {renderContent()}
                 </div>
             </div> 
             <div className="relative h-48">
@@ -92,7 +120,7 @@ const DashboardBar = () => {
                 Confirm
                 </button>
             </div>
-        </div>
+            </div>
         </div>
         </div>
     </div>
