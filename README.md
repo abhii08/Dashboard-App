@@ -1,6 +1,7 @@
 # Dashboard App
 
 This project is a dashboard application that allows users to add widgets to different categories on the dashboard.
+# Project Link 
 
 ## Features
 - Add widgets to categories using the "Add Widget +" button in the DashboardBar component.
