@@ -26,7 +26,6 @@ const Widget = ({ widget, categoryId }) => {
   };
 
   const getImageForWidget = (widgetName) => {
-    // Example logic to map widget names to images
     switch (widgetName) {
       case 'Cloud Accounts':
         return img1;
@@ -56,7 +55,7 @@ const Widget = ({ widget, categoryId }) => {
       <h3 className="text-xl font-medium text-gray-800 mb-2">
         {widget.name}
       </h3>
-      <img src={getImageForWidget(widget.name)} alt={widget.name} className="my-2" />
+      <img src={getImageForWidget(widget.name)} alt={widget.name} className="my-2 w-64 h-48" />
       
     </div>
   );
