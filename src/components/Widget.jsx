@@ -2,6 +2,11 @@ import React from 'react';
 import { useSetRecoilState } from 'recoil';
 import { categoriesState } from '../state/atoms';
 import { AiOutlineClose } from 'react-icons/ai';
+import img1 from '../assets/images/1.jpg';
+import img2 from '../assets/images/2.jpg';
+import img3 from '../assets/images/3.jpg';
+import img4 from '../assets/images/4.jpg';
+import img5 from '../assets/images/5.jpg';
 
 const Widget = ({ widget, categoryId }) => {
   const setCategories = useSetRecoilState(categoriesState);
@@ -20,6 +25,26 @@ const Widget = ({ widget, categoryId }) => {
     );
   };
 
+  const getImageForWidget = (widgetName) => {
+    // Example logic to map widget names to images
+    switch (widgetName) {
+      case 'Cloud Accounts':
+        return img1;
+      case 'Cloud Account Risk Assessment':
+        return img2;
+        case 'Top 5 Namespace Specific Alerts':
+        return img3;
+        case 'Workload Alerts':
+        return img3;
+        case 'Image Risk Assessment':
+        return img4;
+        case 'Image Security issues':
+        return img5;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="bg-white p-4 rounded-lg shadow relative">
       <button
@@ -31,7 +56,8 @@ const Widget = ({ widget, categoryId }) => {
       <h3 className="text-xl font-medium text-gray-800 mb-2">
         {widget.name}
       </h3>
-      <p className="text-gray-600">{widget.text}</p>
+      <img src={getImageForWidget(widget.name)} alt={widget.name} className="my-2" />
+      
     </div>
   );
 };
