@@ -247,18 +247,9 @@ const DashboardBar = ({ addWidget }) => {
                 </button>
               </div>
             </div>
-<<<<<<< HEAD
           </div>
           <div className="content">{renderContent()}</div>
           <div className="relative h-96">
-=======
-            <div>
-                <div className="content">
-                    {renderContent()}
-                </div>
-            </div> 
-            <div className="relative h-96">
->>>>>>> 11f715f4bbe267b91232893964e0f4eacc59f4be
             <div className="absolute bottom-0 right-0 mb-4 mr-4 px-4 py-2 text-white rounded">
               <button
                 onClick={toggleDrawer}
@@ -277,13 +268,7 @@ const DashboardBar = ({ addWidget }) => {
         </div>
       </div>
     </div>
-<<<<<<< HEAD
   );
 };
 
-=======
-  )
-}    
-  
->>>>>>> 11f715f4bbe267b91232893964e0f4eacc59f4be
 export default DashboardBar;
