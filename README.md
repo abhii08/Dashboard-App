@@ -12,7 +12,7 @@ https://github.com/abhii08/Dashboard-App
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/Dashboard-App.git
+   git clone https://github.com/abhii08/Dashboard-App.git
    ```
 
 2. Install dependencies:
